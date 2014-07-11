@@ -1,0 +1,25 @@
+<h4>Recipe</h4>
+<img ng-src='{{recipe.images[0].hostedLargeUrl}}' />
+<h4>{{recipe.name}}</h4>
+<h4>Serving Size</h4>
+{{recipe.numberOfServings}}
+<h4>Rating</h4>
+{{recipe.rating}}
+<h4>Preparation Time</h4>
+{{recipe.totalTimeInSeconds | secondsToHours}}
+<h4>Ingredients</h4>
+<ul ng-repeat='ingredient in recipe.ingredientLines'>
+	<li>{{ingredient}}</li>
+</ul>
+<h4>Flavors</h4>
+<ul ng-repeat='(flavor, score) in recipe.flavors'>
+	<li>{{flavor}} - {{score}}</li>
+</ul>
+<h4>Directions</h4>
+<a href='{{recipe.source.sourceRecipeUrl}}'>{{recipe.source.sourceDisplayName}}</a>
+<h4>Nutrition</h4>
+<ul ng-repeat='nutrition in recipe.nutritionEstimates'>
+	<li>{{nutrition.description}} - {{nutrition.value}} {{nutrition.unit.plural}}</li>
+</ul>
+
+

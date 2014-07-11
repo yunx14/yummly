@@ -1,0 +1,15 @@
+<p>This is the partial for view 1.</p>
+<input type='text' ng-model='searchTerms' placeholder='Search Yummly'>
+<select ng-model='maxResults' ng-options='result.number for result in perPage'></select>
+<input type='submit' ng-click='search()'>
+
+<div>
+	<span id='pagination' class='hidden'>showing {{maxResults.number}} of {{results.totalMatchCount}} total matches.</span>
+	<div ng-controller="PaginationController"><pagination total-items="results.totalMatchCount" ng-model="currentPage"></pagination></div>
+	<ul> 
+		<li ng-repeat='result in results.matches'>
+			<img ng-src='{{result.imageUrlsBySize.90}}' />
+			<a href='#/view2/{{result.id}}'>{{result.id}}</a>
+		</li>
+	</ul>
+</div>
